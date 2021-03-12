@@ -1,55 +1,37 @@
-// add product button event listener
-// let addProduct = document.getElementById('add')
-// addProduct.addEventListener('click', () => {
-    // alert('button is clicked')
-// }) 
+
+let text = document.getElementById("error-message");
+let product = document.getElementById("add-product");
+let price = document.getElementById("add-price")
+let input = document.forms["myform"]["product"];
+let data = document.getElementById("error-messages");
+let items = [];
+
+document.getElementById("error-message").style.display = "none";
 
 
+text.style.display = "none";
+data.style.display = "none";
+document.getElementById("form").addEventListener("submit", (e) => {
+  e.preventDefault();
+  validateForm(); 
+});
 // form validation
 function validateForm() {
-
-   
-    let product = document.forms["myform"]["add-product"].value;
-    if (product.value == "") {
-        // product.style.display = "inline"
-        product.innerHTML = "please fill out name of product"
-        // console.log(product)
-    // alert("product must be filled out");
-    return false;
-    } else {
-        return true
-    }
-   
+  // console.log(product.value); 
+  text.style.display = !product.value ? "block" : "none";
+  data.style.display = !price.value ? "block" : "none";
     
-    // let firstProduct = document.getElementById('product').value;
-    // let firstPrice = document.getElementById('price').value;
+  items.push(product.value, price.value)
+  console.log(items)
+  // if (!product.value) {
+  //   text.style.display = "block";
+  // } else {
+  //   text.style.display = "none";
+  // }
 
-    // let valid = 1;
+  // var x = document.getElementById("myDIV");
 
-    // if (firstProduct == ' ' && valid == 1) {
-    //     document.getElementById('product').style.display = 'inline';
-    //     document.getElementById('product').innerHTML = 'please enter product';
-    //     valid = 0;
-    // }
-    //  if (firstPrice == " " && valid == 1) {
-    //    document.getElementById("price").style.display = "inline";
-    //    document.getElementById("price").innerHTML = "please enter price";
-    //    valid = 0;
-    // }
-    
-    // if (valid == 1) {
-    //     return true; 
-    // } else {
-    //     return false
-    // }
-
-    // if (firstProduct.value == null || product == " ") {
-    //     e.preventDefault();
-    //     alert('product cant be blank')
-    //     return false
-    // } else if (firstPrice.value == null || price == " ") {
-    //     alert('price cant be blank')
-    //     return false
-    // }
-    // console.log('good')
+  //       console.log(input)
 }
+
+
